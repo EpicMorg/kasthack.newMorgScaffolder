@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  app:
+    image: "epicmorg/${PRODUCT}:${RELEASE}"
+    build:
+      args:
+        RELEASE: ${RELEASE}
+        DOWNLOAD_URL: ${DOWNLOAD_URL}
+        JDK_VERSION: jdk8
+  app-${JDK_VERSION}:
+    image: "epicmorg/${PRODUCT}:${RELEASE}-${JDK_VERSION}"
+    build:
+      args:
+        RELEASE: ${RELEASE}
+        DOWNLOAD_URL: ${DOWNLOAD_URL}
+        JDK_VERSION: ${JDK_VERSION}
